@@ -150,4 +150,6 @@ csmArrULong;
 }
 #endif
 
+#define __attribute__(A)
+
 #endif /* csmfwddecl_hxx */

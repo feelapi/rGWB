@@ -31,8 +31,8 @@
 #include "csmshape2d.inl"
 #include "csmsurface.inl"
 
-#include <basicSystem/bsmaterial.h>
-#include <basicGraphics/bsgraphics2.h>
+//#include <basicSystem/bsmaterial.h>
+//#include <basicGraphics/bsgraphics2.h>
 
 #else
 #include "a_bool.h"
@@ -1946,16 +1946,16 @@ void csmface_draw_solid(
         {
             if (face->visz_material_opt != NULL)
             {
-                struct bsmaterial_t *bsmaterial;
+                // struct bsmaterial_t *bsmaterial;
                 
-                bsmaterial = bsmaterial_crea_rgba(face->visz_material_opt->r, face->visz_material_opt->g, face->visz_material_opt->b, face->visz_material_opt->a);
-                bsgraphics2_escr_color(graphics, bsmaterial);
+                // bsmaterial = bsmaterial_crea_rgba(face->visz_material_opt->r, face->visz_material_opt->g, face->visz_material_opt->b, face->visz_material_opt->a);
+                // bsgraphics2_escr_color(graphics, bsmaterial);
                 
-                bsmaterial_destruye(&bsmaterial);
+                // bsmaterial_destruye(&bsmaterial);
             }
             else
             {
-                bsgraphics2_escr_color(graphics, face_material);
+                //bsgraphics2_escr_color(graphics, face_material);
             }
             
             csmshape2d_draw_3D(shape, Xo, Yo, Zo, Ux, Uy, Uz, Vx, Vy, Vz, CSMFALSE, graphics);
@@ -1969,14 +1969,14 @@ void csmface_draw_solid(
         double x_geometric_center, y_geometric_center, z_geometric_center;
         double disp;
         
-        bsgraphics2_escr_color(graphics, normal_material);
-        csmloop_geometric_center_3d(face->flout, &x_geometric_center, &y_geometric_center, &z_geometric_center);
+        // bsgraphics2_escr_color(graphics, normal_material);
+        // csmloop_geometric_center_3d(face->flout, &x_geometric_center, &y_geometric_center, &z_geometric_center);
     
-        disp = 0.005;
-        bsgraphics2_escr_linea3D(
-                        graphics,
-                        x_geometric_center, y_geometric_center, z_geometric_center,
-                        x_geometric_center + disp * face->A, y_geometric_center + disp * face->B, z_geometric_center + disp * face->C);
+        // disp = 0.005;
+        // bsgraphics2_escr_linea3D(
+        //                 graphics,
+        //                 x_geometric_center, y_geometric_center, z_geometric_center,
+        //                 x_geometric_center + disp * face->A, y_geometric_center + disp * face->B, z_geometric_center + disp * face->C);
     }
 }
 
@@ -1991,11 +1991,11 @@ void csmface_draw_normal(struct csmface_t *face, struct bsgraphics2_t *graphics)
     
     csmloop_geometric_center_3d(face->flout, &x_geometric_center, &y_geometric_center, &z_geometric_center);
     
-    disp = 0.005;
-    bsgraphics2_escr_linea3D(
-                        graphics,
-                        x_geometric_center, y_geometric_center, z_geometric_center,
-                        x_geometric_center + disp * face->A, y_geometric_center + disp * face->B, z_geometric_center + disp * face->C);
+    // disp = 0.005;
+    // bsgraphics2_escr_linea3D(
+    //                     graphics,
+    //                     x_geometric_center, y_geometric_center, z_geometric_center,
+    //                     x_geometric_center + disp * face->A, y_geometric_center + disp * face->B, z_geometric_center + disp * face->C);
 }
 
 // ----------------------------------------------------------------------------------------------------
@@ -2028,15 +2028,15 @@ void csmface_draw_edges(
         
         if (loop_iterator == face->flout)
         {
-            assert(loop_area >= 0.);
-            bsgraphics2_escr_color(graphics, outer_loop);
+            // assert(loop_area >= 0.);
+            // bsgraphics2_escr_color(graphics, outer_loop);
         }
         else
         {
-            if (loop_area < 0.)
-                bsgraphics2_escr_color(graphics, hole_loop);
-            else
-                bsgraphics2_escr_color(graphics, inner_non_hole_loop);
+            // if (loop_area < 0.)
+            //     bsgraphics2_escr_color(graphics, hole_loop);
+            // else
+            //     bsgraphics2_escr_color(graphics, inner_non_hole_loop);
         }
         
         lhedge = csmloop_ledge(loop_iterator);
@@ -2053,7 +2053,7 @@ void csmface_draw_edges(
                 double x1, y1, z1, x2, y2, z2;
                 
                 csmedge_vertex_coordinates(edge, &x1, &y1, &z1, NULL, &x2, &y2, &z2, NULL);
-                bsgraphics2_escr_linea3D(graphics, x1, y1, z1, x2, y2, z2);
+                // bsgraphics2_escr_linea3D(graphics, x1, y1, z1, x2, y2, z2);
             }
             
             he = csmhedge_next(he);

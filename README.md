@@ -1,3 +1,12 @@
+# windows编译
+
+* cmake + VS2019
+* mkdir build
+* cd build && cmake -G "Visual Studio 16 2019" ..\
+
+有几个c文件没有编译，和测试，显示有关。增加了more.c，解决链接问题。
+
+
 # rGWB
 An implementation of Martti Mäntylä's Geometric WorkBench
 

@@ -18,8 +18,10 @@
 #include <math.h>
 #include <immintrin.h>
 
-#define CSMMATH_MAKE_M256D(m256d, a, b, c, d) (m256d[0] = (a), m256d[1] = (b), m256d[2] = (c), m256d[3] = (d))
-#define CSMMATH_SUM_M256D(m256d) (m256d[0] + m256d[1] + m256d[2] + m256d[3])
+//#define CSMMATH_MAKE_M256D(m256d, a, b, c, d) (m256d[0] = (a), m256d[1] = (b), m256d[2] = (c), m256d[3] = (d))
+//#define CSMMATH_SUM_M256D(m256d) (m256d[0] + m256d[1] + m256d[2] + m256d[3])
+#define CSMMATH_MAKE_M256D(m256d, a, b, c, d) ((m256d)=_mm256_set_pd((a), (b), (c), (d)))
+#define CSMMATH_SUM_M256D(m256d) (m256d.m256d_f64[0] + m256d.m256d_f64[1] + m256d.m256d_f64[2] + m256d.m256d_f64[3])
 
 #else
 
@@ -217,7 +219,7 @@ double csmmath_dot_product3D(double Ux, double Uy, double Uz, double Vx, double 
         CSMMATH_MAKE_M256D(V, Vx, Vy, Vz, 0.);
 
         UxV = _mm256_mul_pd(U, V);
-        return UxV[0] + UxV[1] + UxV[2];
+        return UxV.m256d_f64[0] + UxV.m256d_f64[1] + UxV.m256d_f64[2];
     }
     #else
     {

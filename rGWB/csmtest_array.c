@@ -209,7 +209,8 @@ static void i_append_element2(void *ptr_datos, struct i_element_t *e, size_t ele
 
 static void *i_make_array(size_t *element_size)
 {
-    void *ptr_datos;
+    struct i_element_t *ptr_datos;
+
     struct i_element_t *e1, *e2;
     
     ptr_datos = (void *)malloc(sizeof(struct i_element_t *) * 2);
@@ -226,7 +227,7 @@ static void *i_make_array(size_t *element_size)
 
 void csmtest_array_test2(void)
 {
-    void *ptr_datos;
+    struct i_element_t *ptr_datos;
     size_t element_size;
     struct i_element_t *ve1, *ve2;
     

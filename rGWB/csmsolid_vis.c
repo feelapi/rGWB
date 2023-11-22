@@ -24,7 +24,7 @@
 #include "csmstring.inl"
 #include "csmvertex.inl"
 
-#include <basicGraphics/bsgraphics2.h>
+//#include <basicGraphics/bsgraphics2.h>
 
 #else
 
@@ -68,7 +68,7 @@ static void i_draw_debug_info_vertex(struct csmvertex_t *vertex, struct bsgraphi
             char *texto;
             
             texto = copiafor_codigo1("%lu", csmvertex_id(vertex));
-            bsgraphics2_escr_texto_mts(graphics, texto, 0., 0., 1., 0., BSGRAPHICS2_JUSTIFICACION_INF_IZQ, BSGRAPHICS2_ESTILO_NORMAL, 0.002);
+            //bsgraphics2_escr_texto_mts(graphics, texto, 0., 0., 1., 0., BSGRAPHICS2_JUSTIFICACION_INF_IZQ, BSGRAPHICS2_ESTILO_NORMAL, 0.002);
             csmstring_free(&texto);
         }
         bsgraphics2_desapila_transformacion(graphics);
@@ -128,7 +128,7 @@ static void i_draw_debug_info_hedge(
             if (length > 0.)
             {
                 bsgraphics2_append_ejes_2D(graphics, x1, y1, z1, Ux, Uy, Uz, Vx, Vy, Vz);
-                bsgraphics2_escr_texto_mts(graphics, "***", 0., 0., 1., 0., BSGRAPHICS2_JUSTIFICACION_INF_IZQ, BSGRAPHICS2_ESTILO_NORMAL, 0.005);
+               // bsgraphics2_escr_texto_mts(graphics, "***", 0., 0., 1., 0., BSGRAPHICS2_JUSTIFICACION_INF_IZQ, BSGRAPHICS2_ESTILO_NORMAL, 0.005);
                 bsgraphics2_desapila_transformacion(graphics);
             }
            
@@ -150,7 +150,7 @@ static void i_draw_debug_info_hedge(
                 else
                     bsgraphics2_append_ejes_plano_pantalla(graphics);
                 
-                bsgraphics2_escr_texto_mts(graphics, description, 0., 0., 1., 0., BSGRAPHICS2_JUSTIFICACION_INF_CEN, BSGRAPHICS2_ESTILO_NORMAL, 0.005);
+                //bsgraphics2_escr_texto_mts(graphics, description, 0., 0., 1., 0., BSGRAPHICS2_JUSTIFICACION_INF_CEN, BSGRAPHICS2_ESTILO_NORMAL, 0.005);
                 
                 bsgraphics2_desapila_transformacion(graphics);
             }
@@ -185,12 +185,12 @@ static void i_draw_debug_info_faces(struct csmsolid_t *solid, CSMBOOL draw_edge_
         if (csmface_is_setop_null_face(face) == CSMTRUE)
         {
             is_null_face = CSMTRUE;
-            bsgraphics2_escr_grosor_linea(graphics, BSGRAPHICS2_GROSOR_TREMENDAMENTE_GRUESO);
+           // bsgraphics2_escr_grosor_linea(graphics, BSGRAPHICS2_GROSOR_TREMENDAMENTE_GRUESO);
         }
         else
         {
             is_null_face = CSMFALSE;
-            bsgraphics2_escr_grosor_linea(graphics, BSGRAPHICS2_GROSOR_NORMAL);
+           // bsgraphics2_escr_grosor_linea(graphics, BSGRAPHICS2_GROSOR_NORMAL);
         }
         
         floops = csmface_floops(face);
@@ -302,7 +302,7 @@ static void i_draw_null_edge(struct csmedge_t *edge, struct bsgraphics2_t *graph
                     csmmath_unit_vector_between_two_3D_points(x1, y1, z1, x_prev, y_prev, z_prev, &Ux, &Uy, &Uz);
                     csmmath_move_point(x1, y1, z1, Ux, Uy, Uz, 0.25 * length, &x, &y, &z);
                 
-                    bsgraphics2_escr_grosor_linea(graphics, BSGRAPHICS2_GROSOR_TREMENDAMENTE_GRUESO);
+                   // bsgraphics2_escr_grosor_linea(graphics, BSGRAPHICS2_GROSOR_TREMENDAMENTE_GRUESO);
                     bsgraphics2_escr_linea3D(graphics, x1, y1, z1, x, y, z);
                 }
             }

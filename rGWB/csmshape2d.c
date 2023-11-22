@@ -17,9 +17,10 @@
 #include "csmapto2d.h"
 #include "csmapto3d.h"
 
-#include "basicGraphics/bsgraphics2.h"
-#include <OpenGL/OpenGL.h>
-#include <GLUT/GLUT.h>
+//#include "basicGraphics/bsgraphics2.h"
+#include <windows.h>
+#include <GL/GL.h>
+#include <GL/GLU.h>
 
 struct i_polygon_t
 {
